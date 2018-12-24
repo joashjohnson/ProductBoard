@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <!--
+jj1810
+  <button mat-raised-button (click)="showRegistrationForm = !showRegistrationForm" color="accent">Login
+  </button>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)" *ngIf="showRegistrationForm">
+-->
+
+  <img src="../../assets/images/SkillletLogoW.png" class="Logo" />
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput required placeholder="Email" formControlName="email" type="email" email="true">
+      <mat-error *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)"></mat-error>
+    </mat-form-field>
+    <br/>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Password" formControlName="password" type="password" required>
+      <mat-error *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)">
+        Password not valid
+      </mat-error>
+    </mat-form-field>
+    <br/>
+    <!--<button mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>-->
+    <button mat-raised-button id="login" color="accent">LOGIN</button>
+  </form>
+  <br/>
+    <p>
+    <span>or</span>
+  </p>
+    <br/>
+  <a mat-raised-button href="/api/auth/linkedin" class="blue"><i class="fab fa-linkedin"></i><span> Login via LinkedIn  </span></a>
+  <br />
+  <br />
+  <span style="color:white">
+    Don't have an account ?
+    <a routerLink="/register" routerLinkActive="active">Sign Up</a>
+  </span>
+</div>

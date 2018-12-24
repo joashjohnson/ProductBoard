@@ -1,0 +1,29 @@
+{% extends 'products/base.html' %}
+{% block activepersona %} class="active"{% endblock %}
+{% block content %}
+
+
+<div class="panel-header panel-header-sm">
+</div>
+
+
+
+
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+          {% for pe in Persona %}
+
+          <p>{{pe.PersonaName}}</p>
+          <img src="{{pe.Picmage.url}}" alt="Smiley face" width="42" height="42">
+          {% endfor %}
+
+      <a href="{% url 'create_Feature' %}">Create Persona</a>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

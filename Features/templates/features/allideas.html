@@ -1,0 +1,68 @@
+{% extends 'products/base.html' %}
+{% block activeIdeas %} class="active"{% endblock %}
+{% block content %}
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+
+<div class="panel-header panel-header-sm">
+</div>
+
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card" style="padding:2.5%">
+        <table>
+        <tr>
+          <th>Product</th>
+          <th>Idea Title</th>
+          <th>Description</th>
+          <th>Impact</th>
+          <th>Effort</th>
+          <th>State</th>
+          <th></th>
+        </tr>
+      {% for i in Ideas %}
+        <tr>
+          <td>{{i.iProduct}}</td>
+          <td><a href="">{{i.Title}}</a></td>
+          <td>{{i.Desciption}}</td>
+          <td>{{i.impact}}</td>
+          <td>{{i.effort}}</td>
+          {% if i.area == "B" %}
+            <td>Backlog</td>
+          {% elif i.area == "U" %}
+            <td>Unsorted</td>
+          {% elif i.area == "C" %}
+            <td>Completed</td>
+          {% endif %}
+          <td style="width:10%"> <a href="{% url 'edit_Feature' pk=i.id %}"><i class="far fa-edit"></i> Edit</a></br> <a href="{% url 'delete_Feature' pk=i.id  %}"><i class="fas fa-trash"></i> Delete</a></td>
+        </tr>
+
+      {% endfor %}
+      </table>
+      <br>
+      <a href="{% url 'create_Feature' %}">Create Feature</a>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}
