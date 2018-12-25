@@ -8,22 +8,27 @@
 
 
 
-
-
 <div class="content">
   <div class="row">
     <div class="col-md-12">
-      <div class="card">
+        <div class="card" style="width: 18rem;">
           {% for pe in Persona %}
-
-          <p>{{pe.PersonaName}}</p>
-          <img src="{{pe.Picmage.url}}" alt="Smiley face" width="42" height="42">
+            <center>
+                <img src="{{pe.Picmage.url}}" alt="Smiley face" width=100%>
+                <p></p>
+                <h2>{{pe.PersonaName}}</h2>
+            </center>
+            <div style="padding:2%">
+                <p class="font-weight-bold">Summary</p>
+                <p>{{pe.PersonaDescription}}</p>
+            </div>
           {% endfor %}
 
-      <a href="{% url 'create_Feature' %}">Create Persona</a>
+
     </div>
   </div>
 </div>
+    <a href="{% url 'create_Feature' %}">Create Persona</a>
 </div>
 
 {% endblock %}

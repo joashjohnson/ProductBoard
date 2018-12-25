@@ -7,6 +7,7 @@ class myProducts(models.Model):
     Objectives = models.TextField()
     Vision = models.TextField()
     SubmissionDate = models.DateTimeField()
+
     def __str__(self):
         return self.ProductTitle
         
