@@ -1,5 +1,4 @@
 from django import forms
-import datetime
 from .models import Ideas
 
 class FeaturesCreation(forms.ModelForm):

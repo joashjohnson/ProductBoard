@@ -1,5 +1,3 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
 from .models import Ideas
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
@@ -9,6 +7,7 @@ from sendgrid.helpers.mail import *
 
 
 # Create your views here.
+
 def index_feature(request):
     ideas = Ideas.objects.all()
     context =  {
