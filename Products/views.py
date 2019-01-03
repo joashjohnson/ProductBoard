@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import myProducts
 from .forms import ProductCreation, ProductEdit
 import datetime
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
@@ -26,7 +28,6 @@ def Create(request):
             return redirect('index')
         else:
             form = ProductCreation()
-
     form = ProductCreation()
     context = {'form': form}
     return render(request, 'products/products.html', context)
@@ -50,3 +51,6 @@ def Edit(request, pk):
     else:
         form = ProductEdit(instance=entry)
     return render(request, 'products/productedit.html', context = {'form': form , 'entry':entry})
+
+def AccessChecker(request):
+    return redirect('index')

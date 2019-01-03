@@ -8,5 +8,6 @@ urlpatterns = [
      path('product/feature/create', views.create_feature, name='create_Feature'),
      path('product/feature/delete/<int:pk>', views.del_feature, name='delete_Feature'),
      path('product/feature/edit/<int:pk>', views.edit_feature, name='edit_Feature'),
+     path('product/<int:fk>/feature/detail/<int:pk>', views.view_detail, name='view_Detail'),
      ]
 

@@ -1,8 +1,7 @@
 from .models import user_persona
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
-from django.core.files.storage import FileSystemStorage
-
+listing = "no"
 # Create your views here.
 
 def pindex(request):
@@ -17,12 +16,9 @@ def create_persona(request):
         if form.is_valid():
             entry = form.save(commit=False)
             entry.save()
-            fs = FileSystemStorage()
-            fs.save(entry,'Picmage')
-            return redirect('pindex')
+        return redirect('pindex')
     else:
         form = PersonaCreation()
-
     return render(request, 'persona/createpersona.html', context={'form': form})
 
 def del_persona(request,pk):
@@ -44,3 +40,9 @@ def edit_persona(request,pk):
     return render(request, 'persona/editpersona.html', context={'form': form, 'entry':entry})
 
 
+def product_persona(request,fk):
+    listing = "yes"
+    currentf = fk
+    persona = user_persona.objects.all()
+    context = {'Persona': persona, 'fk' : currentf, 'Listing': listing}
+    return render(request, 'persona/persona.html', context)

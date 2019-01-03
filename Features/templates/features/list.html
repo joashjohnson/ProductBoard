@@ -39,7 +39,7 @@ tr:nth-child(even) {
       {% for i in Ideas %}
       {% if i.iProduct.id == fk %}
         <tr>
-          <td><a href="">{{i.Title}}</a></td>
+          <td><a href="{% url 'view_Detail' pk=i.id fk=fk%}">{{i.Title}}</a></td>
           <td>{{i.Desciption}}</td>
           <td>{{i.impact}}</td>
           <td>{{i.effort}}</td>

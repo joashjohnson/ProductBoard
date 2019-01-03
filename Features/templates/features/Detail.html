@@ -1,0 +1,58 @@
+{% extends 'products/base.html' %} {% block content %}
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+</style>
+
+
+<div class="panel-header panel-header-sm">
+</div>
+
+
+
+<div class="content">
+  <div class="row">
+
+      <div class="card" style="padding:2.5%;width:49%">
+        <h1>{{ideas.Title}}</h1>
+        <p>{{ideas.Desciption}}</p>
+      </div>
+       <div  style="width:2%">
+      </div>
+      <div class="card" style="padding:2.5%;width:49%">
+        <p>{{ideas.problems}}</p>
+      </div>
+      <div class="card" style="padding:2.5%">
+        <p>{{ideas.business_reasons}}</p>
+      </div>
+      <div class="card" style="padding:2.5%">
+        {% if ideas.area == "B" %}
+        <p>Backlog</p>
+        {%elif ideas.area == "C"%}
+        <p>Completed</p>
+        {%elif ideas.area == "U"%}
+        <p>Unsorted</p>
+        {% endif %}
+      <br>
+    </div>
+  </div>
+</div>
+</div>
+
+
+{% endblock %}
