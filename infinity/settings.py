@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'Features',
     'feedback',
     'Persona',
-    'accounts'
+    'accounts',
 ]
 
 MIDDLEWARE = [

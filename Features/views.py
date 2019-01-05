@@ -32,14 +32,14 @@ def product_feature(request, fk):
 @login_required
 def create_feature(request):
     if request.method == 'POST':
-        form = FeaturesCreation(request.POST)
+        form = FeaturesCreation(request.user, request.POST)
         if form.is_valid():
             entry = form.save(commit=False)
             entry.save()
             sendemail()
             return redirect('index_Feature')
     else:
-        form = FeaturesCreation()
+        form = FeaturesCreation(request.user)
     return render(request, 'features/iCreate.html', context={'form': form})
 
 @login_required
@@ -52,13 +52,13 @@ def del_feature(request,pk):
 def edit_feature(request,pk):
         entry = get_object_or_404(Ideas, pk=pk)
         if request.method == "POST":
-            form = FeaturesEdit(request.POST, instance = entry)
+            form = FeaturesEdit(request.user, request.POST, instance=entry)
             if form.is_valid():
                 entry = form.save(commit=False)
                 entry.save()
                 return redirect('index')
         else:
-            form = FeaturesEdit(instance=entry)
+            form = FeaturesEdit(request.user,instance=entry)
         return render(request, 'features/iedit.html', context={'form': form, 'entry':entry})
 
 @login_required

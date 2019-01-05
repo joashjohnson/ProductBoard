@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, get_user_model
 User = get_user_model()
 
 class UserLogin(forms.Form):
-    username = forms.EmailField()
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
 
     def clean(self, *args, ** kwargs):
@@ -24,7 +24,7 @@ class UserLogin(forms.Form):
 
 
 class UserRegisterForm(forms.ModelForm):
-    username = forms.EmailField(label='Email Address')
+    username = forms.CharField()
     Password = forms.CharField(widget=forms.PasswordInput,label='Enter Password')
 
     class Meta:
@@ -36,9 +36,9 @@ class UserRegisterForm(forms.ModelForm):
         ]
 
     def checkemail(self):
-        email = self.cleaned_data.get('username')
+        username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
-        email_qs = User.objects.filter(email=email)
+        email_qs = User.objects.filter(username=username)
         if email_qs.exists():
             raise forms.ValidationError("this email is already being used")
         return email
