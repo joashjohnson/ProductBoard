@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
+from django.utils.crypto import get_random_string
 
+unique_id = get_random_string(length=32)
 
 urlpatterns = [
      path('idea/', views.index_feature, name='index_Feature'),

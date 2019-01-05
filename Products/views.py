@@ -4,16 +4,18 @@ from .models import myProducts
 from .forms import ProductCreation, ProductEdit
 import datetime
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
-
+@login_required
 def index(request):
-    products = myProducts.objects.all()
+    products = myProducts.objects.all().filter(ProductAccessList=request.user)
     context = {'Product': products}
     return render(request, 'products/dashboard.html', context)
 
-
+@login_required
 def Create(request):
     if request.method == 'POST':
         form = ProductCreation(request.POST)
@@ -32,13 +34,13 @@ def Create(request):
     context = {'form': form}
     return render(request, 'products/products.html', context)
 
-
+@login_required
 def Delete(request, pk):
     entry = get_object_or_404(myProducts, pk=pk)
     entry.delete()
     return HttpResponseRedirect('/')
 
-
+@login_required
 def Edit(request, pk):
     entry = get_object_or_404(myProducts, pk=pk)
     if request.method == "POST":
@@ -52,5 +54,6 @@ def Edit(request, pk):
         form = ProductEdit(instance=entry)
     return render(request, 'products/productedit.html', context = {'form': form , 'entry':entry})
 
+@login_required
 def AccessChecker(request):
     return redirect('index')

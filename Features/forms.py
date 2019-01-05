@@ -12,5 +12,6 @@ class FeaturesEdit(forms.ModelForm):
     class Meta:
         model = Ideas
         fields = (
-         'iProduct', 'Title', 'Desciption', 'problems', 'business_reasons', 'impact', 'effort','owner', 'area','createdby')
+         'iProduct', 'Title', 'Desciption', 'problems', 'business_reasons', 'impact', 'effort','owner', 'area')
+
 
