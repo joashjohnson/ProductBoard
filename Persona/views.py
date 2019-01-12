@@ -6,7 +6,6 @@ from .forms import *
 from django.contrib.auth.models import User
 
 
-
 listing = "no"
 # Create your views here.
 @login_required
@@ -28,22 +27,28 @@ def create_persona(request):
     return render(request, 'persona/createpersona.html', context={'form': form})
 @login_required
 def del_persona(request,pk):
-    entry = get_object_or_404(user_persona, pk=pk)
-    entry.delete()
-    return redirect('pindex')
+    if user_persona.objects.all().filter(id=pk, PProduct__ProductAccessList=request.user):
+        entry = get_object_or_404(user_persona, pk=pk)
+        entry.delete()
+        return redirect('pindex')
+    else:
+        return redirect('pindex')
 
 @login_required
 def edit_persona(request,pk):
-    entry = get_object_or_404(user_persona, pk=pk)
-    if request.method == "POST":
-        form = PersonaEdit(request.user, request.POST,request.FILES or None, instance = entry)
-        if form.is_valid():
-            entry = form.save(commit=False)
-            entry.save()
-            return redirect('pindex')
+    if user_persona.objects.all().filter(id=pk, PProduct__ProductAccessList=request.user):
+        entry = get_object_or_404(user_persona, pk=pk)
+        if request.method == "POST":
+            form = PersonaEdit(request.user, request.POST,request.FILES or None, instance = entry)
+            if form.is_valid():
+                entry = form.save(commit=False)
+                entry.save()
+                return redirect('pindex')
+        else:
+            form = PersonaEdit(request.user,instance=entry)
+        return render(request, 'persona/editpersona.html', context={'form': form, 'entry':entry})
     else:
-        form = PersonaEdit(request.user,instance=entry)
-    return render(request, 'persona/editpersona.html', context={'form': form, 'entry':entry})
+        return redirect('pindex')
 
 @login_required
 def product_persona(request,fk):

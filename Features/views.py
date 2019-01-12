@@ -44,12 +44,16 @@ def create_feature(request):
 
 @login_required
 def del_feature(request,pk):
-    entry = get_object_or_404(Ideas, pk=pk)
-    entry.delete()
-    return redirect('index_Feature')
+    if Ideas.objects.all().filter(id=pk, iProduct__ProductAccessList=request.user):
+        entry = get_object_or_404(Ideas, pk=pk)
+        entry.delete()
+        return redirect('index_Feature')
+    else:
+        return redirect('index_Feature')
 
 @login_required
 def edit_feature(request,pk):
+    if Ideas.objects.all().filter(id=pk, iProduct__ProductAccessList=request.user):
         entry = get_object_or_404(Ideas, pk=pk)
         if request.method == "POST":
             form = FeaturesEdit(request.user, request.POST, instance=entry)
@@ -60,18 +64,22 @@ def edit_feature(request,pk):
         else:
             form = FeaturesEdit(request.user,instance=entry)
         return render(request, 'features/iedit.html', context={'form': form, 'entry':entry})
+    else:
+        return redirect('index_Feature')
 
 @login_required
 def view_detail(request,pk,fk):
-    currentf = fk
-    ideas = get_object_or_404(Ideas, pk=pk)
-    context = {
-         'ideas': ideas,
-         'fk': currentf
-    }
-    #gengraph(ideas.impact, ideas.effort)
-    return render(request, 'features/Detail.html', context)
-
+    if Ideas.objects.all().filter(id=pk, iProduct__ProductAccessList=request.user):
+        currentf = fk
+        ideas = get_object_or_404(Ideas, pk=pk)
+        context = {
+             'ideas': ideas,
+             'fk': currentf
+        }
+        #gengraph(ideas.impact, ideas.effort)
+        return render(request, 'features/Detail.html', context)
+    else:
+        return redirect('index_Feature')
 
 def sendemail():
     sg = sendgrid.SendGridAPIClient(apikey='1212')

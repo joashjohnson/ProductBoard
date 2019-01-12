@@ -13,4 +13,5 @@ class ProductCreation(forms.Form):
 class ProductEdit(forms.ModelForm):
     class Meta:
         model = myProducts
-        fields = ('ProductTitle', 'Description','Objectives', 'Vision')
+        fields = ('ProductTitle', 'Description','Objectives', 'Vision', 'ProductAccessList')
+

@@ -24,7 +24,7 @@ def Create(request):
             Description=request.POST['pDesciption'],
             Objectives=request.POST['pObjectives'],
             Vision=request.POST['pVision'],
-            SubmissionDate=datetime.datetime.now()
+            SubmissionDate=datetime.datetime.now(),
             )
             new_product.save()
             return redirect('index')
@@ -42,6 +42,7 @@ def Delete(request, pk):
 
 @login_required
 def Edit(request, pk):
+    # update does not work for product access list
     entry = get_object_or_404(myProducts, pk=pk)
     if request.method == "POST":
         form = ProductEdit(request.POST, instance = entry)

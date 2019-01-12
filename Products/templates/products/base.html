@@ -144,7 +144,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="{% url 'create' %}">Create Product</a>
                   <a class="dropdown-item" href="{% url 'create_Feature' %}">Create Feature</a>
-                  <a class="dropdown-item" href="#">Create Persona</a>
+                  <a class="dropdown-item" href="{% url 'pcreate' %}">Create Persona</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -155,6 +155,16 @@
                   </p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
+                  <i style="font-size:16px; top: 4px;" class="fas fa-sign-out-alt"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Logout</span>
+                  </p>
+                </a>
+              </li>
+
+
             </ul>
           </div>
         </div>
@@ -179,9 +189,8 @@
   <script src="{% static 'products/demo/demo.js' %}"></script>
   <script>
     $(document).ready(function () {
-      // Javascript method's body can be found in {% static 'products/js/demos.js
+      // Javascript method's body can be found in {% static 'products/js/demos.js'
       demo.initDashboardPageCharts();
-
     });
   </script>
 </body>
