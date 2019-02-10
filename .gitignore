@@ -1,2 +1,5 @@
-"sendgrid.env" 
-"sendgrid.env" 
+venv
+*.pyc
+staticfiles
+.env
+*.sqlite3

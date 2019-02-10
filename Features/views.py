@@ -76,7 +76,7 @@ def view_detail(request,pk,fk):
              'ideas': ideas,
              'fk': currentf
         }
-        #gengraph(ideas.impact, ideas.effort)
+        gengraph(ideas.impact, ideas.effort)
         return render(request, 'features/Detail.html', context)
     else:
         return redirect('index_Feature')

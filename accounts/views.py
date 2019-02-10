@@ -23,3 +23,9 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def create_view(request):
+    return
+
+def edit_view(request):
+    return
