@@ -5,9 +5,6 @@ from .forms import ProductCreation, ProductEdit
 import datetime
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-import requests
-
-
 
 # Create your views here.
 @login_required
