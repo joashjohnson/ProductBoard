@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'feedback',
     'Persona',
     'accounts',
-    'ckeditor',
 ]
 
 MIDDLEWARE = [
