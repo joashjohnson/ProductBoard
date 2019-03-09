@@ -57,3 +57,4 @@ def product_persona(request,fk):
     persona = user_persona.objects.all().filter(PProduct__ProductAccessList=request.user)
     context = {'Persona': persona, 'fk' : currentf, 'Listing': listing}
     return render(request, 'persona/persona.html', context)
+

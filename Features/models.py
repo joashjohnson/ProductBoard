@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Ideas(models.Model):
     iProduct = models.ForeignKey(myProducts, on_delete=models.CASCADE)
-    AREA_CHOICES =[('B','Backlog'), ('U','Unsorted'), ('C','Completed')]
+    AREA_CHOICES =[('B','Backlog'), ('U','Unsorted'), ('C','Completed'), ('O','Optimisation Testing'), ('I','In Progress'), ('I','Investigation'), ('D','Discovery')]
     Title= models.CharField(max_length=100)
     Desciption = models.TextField()
     problems = models.TextField()

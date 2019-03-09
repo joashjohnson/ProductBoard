@@ -42,7 +42,7 @@ tr:nth-child(even) {
       {% for i in Ideas %}
         <tr>
           <td>{{i.iProduct}}</td>
-          <td><a href="">{{i.Title}}</a></td>
+          <td><a href="{% url 'view_Detail' pk=i.id fk=i.iProduct.id %}">{{i.Title}}</a></td>
           <td>{{i.Desciption}}</td>
           <td>{{i.impact}}</td>
           <td>{{i.effort}}</td>

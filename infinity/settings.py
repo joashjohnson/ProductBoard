@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Features',
     'feedback',
     'Persona',
+    'KanbanBoard',
     'accounts',
 ]
 
