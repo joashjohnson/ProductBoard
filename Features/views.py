@@ -82,7 +82,7 @@ def view_detail(request,pk,fk):
         return redirect('index_Feature')
 
 def sendemail():
-    sg = sendgrid.SendGridAPIClient(apikey='1212')
+    sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("info@skillet.co")
     to_email = Email("jourdesignmails@gmail.com")
     subject = "A new Feature has been Created"
