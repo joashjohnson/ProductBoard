@@ -2,198 +2,206 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'products/img/apple-icon.png' %}">
-    <link rel="icon" type="image/png" href="{% static 'products/img/favicon.png' %}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>
-      Infinity Board
-    </title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-    <!--Fonts and icons-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/regular.css" integrity="sha384-z3ccjLyn+akM2DtvRQCXJwvT5bGZsspS4uptQKNXNg778nyzvdMqiGcqHVGiAUyY" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <!-- CSS Files -->
-    <link href="{% static 'products/css/bootstrap.min.css' %}" rel="stylesheet" />
-    <link href="{% static 'products/css/now-ui-dashboard.css' %}" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{% static 'products/demo/demo.css' %}" rel="stylesheet" />
-    <link href="{% static 'products/css/style.css' %}" rel="stylesheet" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'products/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'products/img/favicon.png' %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Infinity Board
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--Fonts and icons-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/regular.css" integrity="sha384-z3ccjLyn+akM2DtvRQCXJwvT5bGZsspS4uptQKNXNg778nyzvdMqiGcqHVGiAUyY"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/fontawesome.css" integrity="sha384-u5J7JghGz0qUrmEsWzBQkfvc8nK3fUT7DCaQzNQ+q4oEXhGSx+P2OqjWsfIRB8QT"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- CSS Files -->
+  <link href="{% static 'products/css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'products/css/now-ui-dashboard.css' %}" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="{% static 'products/demo/demo.css' %}" rel="stylesheet" />
+  <link href="{% static 'products/css/style.css' %}" rel="stylesheet" />
+</head>
 
-  <body class="">
-    <div class="wrapper ">
-      <div class="sidebar" data-color="orange">
-        <!--
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="orange">
+      <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-        <div class="logo">
-          <a href="" class="simple-text logo-mini">
+      <div class="logo">
+        <a href="" class="simple-text logo-mini">
           <img src="{% static 'products/img/logo.png' %}" width="100%" />
         </a>
-          <a href="" class="simple-text logo-normal">
+        <a href="" class="simple-text logo-normal">
           Product Board
         </a>
-        </div>
-        <div class="sidebar-wrapper">
-          <ul class="nav">
-            <li {% block active %}{% endblock %}>
-              <a href="{% url 'index' %}">
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li {% block active %}{% endblock %}>
+            <a href="{% url 'index' %}">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
-            </li>
-            <!--   <li {% block activecreate %}{% endblock %}>
+          </li>
+          <!--   <li {% block activecreate %}{% endblock %}>
             <a href="{% url 'create' %}">
               <i class="now-ui-icons education_atom"></i>
               <p>Create Product</p>
             </a>
           </li>-->
-            <li {% block activeIdeas %}{% endblock %}>
-              <a href="{% url 'index_Feature'  %}">
+          <li {% block activeIdeas %}{% endblock %}>
+            <a href="{% url 'index_Feature'  %}">
               <i class="now-ui-icons business_bulb-63"></i>
               <p>Ideas</p>
             </a>
-            </li>
+          </li>
 
-            <li {% block activepersona %} {% endblock %}>
-              <a href="{% url 'pindex'  %}">
+          <li {% block activepersona %} {% endblock %}>
+            <a href="{% url 'pindex'  %}">
               <i class="now-ui-icons users_single-02"></i>
               <p>Persona</p>
             </a>
-            </li>
-            <li>
-              <a href="./tables.html">
+          </li>
+          <li>
+            <a href="./tables.html">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Feedback</p>
             </a>
-            </li>
-            <li>
-              <a href="./typography.html">
+          </li>
+          <li>
+            <a href="./typography.html">
               <i class="now-ui-icons location_map-big"></i>
               <p>Roadmap</p>
             </a>
-            </li>
-            <li>
-              <a href="./notifications.html">
+          </li>
+          <li>
+            <a href="./notifications.html">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Notifications</p>
             </a>
-            </li>
-            <li class="active-pro">
-              <a href="./upgrade.html">
+          </li>
+          <li class="active-pro">
+            <a href="./upgrade.html">
               <i class="now-ui-icons arrows-1_cloud-download-93"></i>
               <p>SettingsO</p>
             </a>
-            </li>
+          </li>
 
-          </ul>
-        </div>
+        </ul>
       </div>
-      <div class="main-panel">
-        <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-wrapper">
-              <div class="navbar-toggle">
-                <button type="button" class="navbar-toggler">
+    </div>
+    <div class="main-panel">
+      <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
-              </div>
-              <a class="navbar-brand" href="#pablo">Icons</a>
             </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#pablo">Icons</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index"
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <form>
-                <div class="input-group no-border">
-                  <input type="text" value="" class="form-control" placeholder="Search...">
-                  <div class="input-group-append">
-                    <div class="input-group-text">
-                      <i class="now-ui-icons ui-1_zoom-bold"></i>
-                    </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="now-ui-icons ui-1_zoom-bold"></i>
                   </div>
                 </div>
-              </form>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons media-2_sound-wave"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Stats</span>
                   </p>
                 </a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i style="font-size:14px" class="fas fa-plus-circle"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </a>
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{% url 'create' %}">Create Product</a>
-                    <a class="dropdown-item" href="{% url 'create_Feature' %}">Create Feature</a>
-                    <a class="dropdown-item" href="{% url 'pcreate' %}">Create Persona</a>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#pablo">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'create' %}">Create Product</a>
+                  <a class="dropdown-item" href="{% url 'create_Feature' %}">Create Feature</a>
+                  <a class="dropdown-item" href="{% url 'pcreate' %}">Create Persona</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#pablo">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">
                   <i style="font-size:16px; top: 4px;" class="fas fa-sign-out-alt"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Logout</span>
                   </p>
                 </a>
-                </li>
+              </li>
 
 
-              </ul>
-            </div>
+            </ul>
           </div>
+        </div>
 
-        </nav>
+      </nav>
 
-        <!--  Navbar -->
+      <!--  Navbar -->
 
-        {% block content %} {% endblock %}
+      {% block content %} {% endblock %}
 
-        <!--   Core JS Files   -->
-        <script src="{% static 'products/js/core/jquery.min.js' %}"></script>
-        <script src="{% static 'products/js/core/popper.min.js' %}"></script>
-        <script src="{% static 'products/js/core/bootstrap.min.js' %}"></script>
-        <script src="{% static 'products/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
-        <!-- Chart JS -->
-        <script src="{% static 'products/js/plugins/chartjs.min.js' %}"></script>
-        <!--  Notifications Plugin    -->
-        <script src="{% static 'products/js/plugins/bootstrap-notify.js' %}"></script>
-        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-        <script src="{% static 'products/js/now-ui-dashboard.min.js?v=1.1.0' %}" type="text/javascript"></script>
-        <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-        <script src="{% static 'products/demo/demo.js' %}"></script>
-        <script>
-          $(document).ready(function() {
-            // Javascript method's body can be found in {% static 'products/js/demos.js'
-            demo.initDashboardPageCharts();
-          });
+      <!--   Core JS Files   -->
+      <script src="{% static 'products/js/core/jquery.min.js' %}"></script>
+      <script src="{% static 'products/js/core/popper.min.js' %}"></script>
+      <script src="{% static 'products/js/core/bootstrap.min.js' %}"></script>
+      <script src="{% static 'products/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+      <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous"></script>
 
-        </script>
+        
+      <!-- Chart JS -->
+      <script src="{% static 'products/js/plugins/chartjs.min.js' %}"></script>
+      <!--  Notifications Plugin    -->
+      <script src="{% static 'products/js/plugins/bootstrap-notify.js' %}"></script>
+      <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+      <script src="{% static 'products/js/now-ui-dashboard.min.js?v=1.1.0' %}" type="text/javascript"></script>
+      <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+      <script src="{% static 'products/demo/demo.js' %}"></script>
+      <script>
+        $(document).ready(function () {
+          // Javascript method's body can be found in {% static 'products/js/demos.js'
+          demo.initDashboardPageCharts();
+        });
+      </script>
 
 
-  </body>
+</body>
 
 </html>

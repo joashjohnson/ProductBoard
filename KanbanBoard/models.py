@@ -17,6 +17,7 @@ class Card(models.Model):
     Cardimage = models.ImageField(upload_to='card_images', blank=True)
     CardDescription = models.TextField()
     CardAssigned = models.ManyToManyField(User)
+    Cardlistorder = models.IntegerField()
 
     def __str__(self):
         return self.Cardtitle
