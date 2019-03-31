@@ -2,9 +2,9 @@ from .models import Ideas
 from Products.models import myProducts
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
-import sendgrid
+""" import sendgrid
 import os
-from sendgrid.helpers.mail import *
+from sendgrid.helpers.mail import * """
 import matplotlib.pyplot as plt
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -81,14 +81,14 @@ def view_detail(request,pk,fk):
     else:
         return redirect('index_Feature')
 
-def sendemail():
+""" def sendemail():
     sg = sendgrid.SendGridAPIClient(apikey=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("info@skillet.co")
     to_email = Email("jourdesignmails@gmail.com")
     subject = "A new Feature has been Created"
     content = Content("text/plain", "Check it out on Finityboard")
     mail = Mail(from_email, subject, to_email, content)
-    response = sg.client.mail.send.post(request_body=mail.get())
+    response = sg.client.mail.send.post(request_body=mail.get()) """
 
 
 def gengraph(impact, effort):
